@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body th:object="${car}">
+
+  <div th:replace="~{layout/header :: header}"></div>
+
+  <h1>Car details for : <span th:text="*{id}">1</span></h1>
+
+  <div>
+    <dl>
+      <dt>id:</dt>
+      <dd th:text="*{id}">1</dd>
+
+      <dt>brand:</dt>
+      <dd th:text="*{brand}">my brand</dd>
+
+      <dt>model:</dt>
+      <dd th:text="*{model}">my model</dd>
+
+      <dt>power:</dt>
+      <dd th:text="*{power}">0</dd>
+    </dl>
+  </div>
+  <a th:href="@{/car}">Back to list</a>
+</body>
+</html>

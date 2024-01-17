@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <div th:replace="~{layout/header :: header}"></div>
+  <a th:href="@{/car/create}">Create new car</a>
+  <h1>Lists of all cars:</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <td>id</td>
+        <td>brand</td>
+        <td>model</td>
+        <td>link</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="car : ${cars}" th:object="${car}">
+        <td th:text="*{id}" ></td>
+        <td th:text="*{brand}" ></td>
+        <td th:text="*{model}" ></td>
+        <td><a th:href="@{ /car/{id} (id=*{id}) }">goto</a></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
